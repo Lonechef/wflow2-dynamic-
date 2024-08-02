@@ -42,6 +42,9 @@ public class ExecutionService {
 
         return executionRepository.save(execution);
     }
+    public List<Execution> getAllExecutions() {
+        return executionRepository.findAll();
+    }
 
     public ExecutionResponseDTO executeWorkflow(ExecutionRequestDTO executionRequestDTO) {
         ExecutionResponseDTO responseDTO = new ExecutionResponseDTO();
@@ -65,6 +68,7 @@ public class ExecutionService {
             } else {
                 responseDTO.addStep("Update DB: status = 'loan_approved and dob was less then 30");
             }
+
         }
 
         responseDTO.addStep("End");
